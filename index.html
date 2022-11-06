@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prac12</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/57e6b371bf.js" crossorigin="anonymous"></script>
+</head>
+<body onload="capcha_generate()">
+    <header>
+        <a id="logo-ref" href="#"><img id="logo" src="pc-logo.png" alt="Логотип"></a>
+        <nav class="main">
+            <div class="thumb"></div>
+            <a href="#home">Главная</a>
+            <a href="#section-1">Раздел 1</a>
+            <a href="#section-2">Раздел 2</a>
+            <a href="#section-3">Раздел 3</a>
+            <a href="#section-4">Раздел 4</a>
+            <a href="#section-5">Раздел 5</a>
+            <a href="#section-6">Раздел 6</a>
+            <!-- Menu -->
+            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+            <nav class="menu">
+                <a href="#home">Главная</a>
+                <a href="#section-1">Раздел 1</a>
+                <a href="#section-2">Раздел 2</a>
+                <a href="#section-3">Раздел 3</a>
+                <a href="#section-4">Раздел 4</a>
+                <a href="#section-5">Раздел 5</a>
+                <a href="#section-6">Раздел 6</a>
+            </nav>
+        </nav>
+        <script>
+            const container = document.querySelector('.main');
+            const thumb = container.querySelector('.thumb');
+            container.addEventListener('mousemove', (event) => {
+                const x = event.clientX - (thumb.clientWidth/2);
+                thumb.style.left = `${x}px`;
+            });
+        </script>
+    </header>
+    <section id="home">
+        <div class="capcha-box">
+            <h2>Капча на JS</h2>
+            <div class="capcha-line">
+                <div id="capcha" selectable="False"></div>
+                <div class="reload" onclick="capcha_generate()">
+                    <i class="fa fa-rotate-right fa-xl"></i>
+                </div>
+            </div>
+            <div class="user-input">
+                <input id="submit" type="text" maxlength="6" placeholder="Введите капчу">
+                <button type="submit" onclick="printmsg()">Проверить</button>
+                <p class="result_capcha"></p>
+            </div>
+        </div>
+    </section>
+    <section id="section-1">
+        <div class="grid">
+            <h2>До сессии осталось:</h2>
+            <div class="time-counter">
+                <div class="box">
+                    <p class="time days">11</p>
+                    <p class="time_name">Дней</p>
+                </div>
+                <div class="box">
+                    <p class="time hours">11</p>
+                    <p class="time_name">Часов</p>
+                </div>
+                <div class="box">
+                    <p class="time minutes">11</p>
+                    <p class="time_name">Минут</p>
+                </div>
+                <div class="box">
+                    <p class="time seconds">11</p>
+                    <p class="time_name">Секунд</p>
+                </div>
+            </div>
+            <img src="timer-img.png">
+        </div>
+    </section>
+    <section id="section-2">
+        <div class="box">
+            <div class="container-2">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="search" id="search" placeholder="Поиск..." />
+            </div>
+        </div>
+    </section>
+    <section id="section-3">
+        <div class="card">
+            <div class="top-card">
+                <div class="socials">
+                    <span class="social"><i class="fa fa-facebook"></i></span>
+                    <span class="social"><i class="fa fa-twitter"></i></span>
+                    <span class="social"><i class="fa fa-instagram"></i></span>
+                </div>
+                <div class="image"><img class="img-scientist" src="alb-eyn.jpg"></div>
+            </div>
+            <h2>Альберт Эйнштейн</h2>
+            <h3>Ульм, Германская империя</h3>
+            <p>Физик-теоретик, один из основателей современной теоретической физики</p>
+            <div class="buttons">
+                <button type="button">Сообщение</button>
+                <button type="button">Подписаться</button>
+            </div>
+        </div>
+    </section>
+    <section id="section-4">
+        <div class="container">
+            <div class="block">
+                <i class="fa fa-youtube fa-2xl"></i>
+                <p class="amount">0</p>
+                <p class="name">Просмотров</p>
+            </div>
+            <div class="block">
+                <i class="fa fa-linkedin fa-2xl"></i>
+                <p class="amount">0</p>
+                <p class="name">Проектов</p>
+            </div>
+            <div class="block">
+                <i class="fa fa-facebook fa-2xl"></i>
+                <p class="amount">0</p>
+                <p class="name">Друзей</p>
+            </div>
+            <div class="block">
+                <i class="fa fa-twitter fa-2xl"></i>
+                <p class="amount">0</p>
+                <p class="name">Постов</p>
+            </div>
+        </div>
+    </section>
+    <section id="section-5">
+        <div class="form">
+            <h2>Логин</h2>
+            <div class="inputBox">
+                <i class="fa-solid fa-envelope fa-lg" style="color: rgb(87, 84, 84);"></i>
+                <input type="email" class="email" placeholder="Почта">
+                <i class="fa-solid fa-circle-exclamation fa-lg" style="color: red;"></i>
+                <p class="error"></p>
+            </div>
+            <div class="inputBox">
+                <i class="fa-solid fa-lock fa-lg" style="color: rgb(87, 84, 84);"></i>
+                <input type="password" class="password" placeholder="Пароль">
+                <i class="fa-solid fa-circle-exclamation fa-lg" style="color: red;"></i>
+                <p class="error"></p>
+            </div>
+            <p><span class="blue">Забыли пароль?</span></p>
+            <button type="submit" class="enter">Войти</button>
+            <p>Нет аккаунта? <span class="blue">Зарегистрируйтесь!</span></p>
+        </div>
+    </section>
+    <section id="section-6">
+        <div class="modal-stars">
+            <div class="stars">
+                <i class="fa-solid fa-star fa-2xl" style="color: yellow; opacity: 0.1;"></i>
+                <i class="fa-solid fa-star fa-2xl" style="color: yellow; opacity: 0.1;"></i>
+                <i class="fa-solid fa-star fa-2xl" style="color: yellow; opacity: 0.1;"></i>
+                <i class="fa-solid fa-star fa-2xl" style="color: yellow; opacity: 0.1;"></i>
+                <i class="fa-solid fa-star fa-2xl" style="color: yellow; opacity: 0.1;"></i>
+            </div>
+            <div class="stars-content">
+                <h2 class="stars-result">Это плохо
+                    <i class="fa-solid fa-face-sad-tear fa-xl" style="color: yellow;"></i>
+                </h2>
+                <h2 class="stars-result">Это хорошо
+                    <i class="fa-solid fa-face-smile fa-xl" style="color: yellow;"></i>
+                </h2>
+                <h2 class="stars-result">Это шедевр
+                    <i class="fa-solid fa-face-grin-hearts fa-xl" style="color: yellow;"></i>
+                </h2>
+                <textarea class="experience" style="resize: none;" placeholder="Поделитесь своим опытом"></textarea>
+                <button type="submit" class="send-review">Отправить</button>
+            </div>
+        </div>
+        <div class="modal-review">
+            <button type="button" class="change">Изменить</button>
+            <h2>Спасибо за отзыв!</h2>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright © 2022 Student MIREA. All Rights Reserved</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
